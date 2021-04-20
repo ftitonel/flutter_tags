@@ -26,10 +26,12 @@ class SuggestionsTextField extends StatefulWidget {
 
 class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
   final _controller = TextEditingController();
+  get controller => _controller;
 
   List<String> _matches = List();
   String _helperText;
   bool _helperCheck = true;
+
 
   List<String> _suggestions;
   bool _constraintSuggestion;
