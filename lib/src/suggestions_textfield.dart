@@ -148,6 +148,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
       if (onSubmitted != null) onSubmitted(str);
       _controller.clear();
     }
+    _controller.clear();
   }
 
   ///Check onChanged
