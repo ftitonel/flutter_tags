@@ -25,8 +25,7 @@ class SuggestionsTextField extends StatefulWidget {
 }
 
 class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
-  final _controller = TextEditingController();
-  get controller => _controller;
+  TextEditingController _controller;
 
   List<String> _matches = List();
   String _helperText;
@@ -40,6 +39,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
 
   @override
   void initState() {
+    _controller = widget.tagsTextField.controller;
     super.initState();
   }
 
@@ -197,7 +197,8 @@ class TagsTextField {
       this.maxLength,
       this.inputDecoration,
       this.onSubmitted,
-      this.onChanged});
+      this.onChanged,
+      this.controller});
 
   final double width;
   final EdgeInsets padding;
@@ -207,6 +208,7 @@ class TagsTextField {
   final InputDecoration inputDecoration;
   final bool autocorrect;
   final List<String> suggestions;
+  final TextEditingController controller;
 
   /// Allows you to insert tags not present in the list of suggestions
   final bool constraintSuggestion;
