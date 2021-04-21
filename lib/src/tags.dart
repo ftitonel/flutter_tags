@@ -87,7 +87,9 @@ class TagsState extends State<Tags> {
   Orientation _orientation = Orientation.portrait;
   double _width = 0;
 
-  final List<DataList> _list = List();
+  final List<DataList> _list =[];
+
+  get list => _list;
 
   List<Item> get getAllItem => _list.toList();
 
