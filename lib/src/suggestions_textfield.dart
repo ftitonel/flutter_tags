@@ -78,6 +78,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
           ),
         ),
         TextField(
+          focusNode: widget.tagsTextField.focusNode,
           controller: _controller,
           enabled: widget.tagsTextField.enabled,
           autofocus: widget.tagsTextField.autofocus ?? true,
@@ -148,7 +149,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
       if (onSubmitted != null) onSubmitted(str);
       _controller.clear();
     }
-    _controller.clear();
+
   }
 
   ///Check onChanged
@@ -199,7 +200,8 @@ class TagsTextField {
       this.inputDecoration,
       this.onSubmitted,
       this.onChanged,
-      this.controller});
+      this.controller,
+      this.focusNode});
 
   final double width;
   final EdgeInsets padding;
@@ -210,6 +212,7 @@ class TagsTextField {
   final bool autocorrect;
   final List<String> suggestions;
   final TextEditingController controller;
+  final FocusNode focusNode;
 
   /// Allows you to insert tags not present in the list of suggestions
   final bool constraintSuggestion;
