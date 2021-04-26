@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // InputSuggestions version 0.0.1
 // currently yield inline suggestions
@@ -83,6 +84,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
           enabled: widget.tagsTextField.enabled,
           autofocus: widget.tagsTextField.autofocus ?? true,
           keyboardType: widget.tagsTextField.keyboardType ?? null,
+          inputFormatters: widget.tagsTextField.inputFormatters?? null,
           textCapitalization: widget.tagsTextField.textCapitalization ??
               TextCapitalization.none,
           maxLength: widget.tagsTextField.maxLength ?? null,
@@ -201,7 +203,9 @@ class TagsTextField {
       this.onSubmitted,
       this.onChanged,
       this.controller,
-      this.focusNode});
+      this.focusNode,
+        this.inputFormatters,
+      });
 
   final double width;
   final EdgeInsets padding;
@@ -213,6 +217,7 @@ class TagsTextField {
   final List<String> suggestions;
   final TextEditingController controller;
   final FocusNode focusNode;
+  final List<TextInputFormatter> inputFormatters;
 
   /// Allows you to insert tags not present in the list of suggestions
   final bool constraintSuggestion;
